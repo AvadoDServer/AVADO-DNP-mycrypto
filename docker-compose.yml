@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  mycrypto.avado.dnp.dappnode.eth:
+    image: 'mycrypto.avado.dnp.dappnode.eth:0.0.4'
+    build: ./build
+    environment:
+      - EXTRA_OPTS=
+    volumes:
+      - 'data:/data'
+    ports:
+      - '80:80'
+      - '443:443'
+volumes:
+  data: {}
