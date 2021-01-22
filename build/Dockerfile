@@ -11,21 +11,21 @@ RUN yarn build
 RUN echo "output.."
 RUN ls  -l /build/MyCrypto/dist/web
 
-WORKDIR /cert
-RUN cp /etc/ssl/openssl.cnf .
-RUN echo "[SAN]\nsubjectAltName=DNS:my.mycrypto.avado.dnp.dappnode.eth" >> openssl.cnf
-RUN cat openssl.cnf
-RUN PASSWORD=$(echo $(LC_CTYPE=C tr -dc 'A-HJ-NPR-Za-km-z2-9' < /dev/urandom | head -c 20)) && \
-    openssl genrsa -des3 -passout pass:${PASSWORD} -out server.pass.key 2048 && \
-    openssl rsa -passin pass:${PASSWORD} -in server.pass.key -out server.key && \
-    rm server.pass.key && \
-    openssl req -new -key server.key -out server.csr \
-        -reqexts SAN \
-        -extensions SAN \
-        -config openssl.cnf \
-        -subj "/C=DE/ST=AVADO/L=AVADO/O=my.mycrypto.avado.dnp.dappnode.eth/OU=saskia@ava.do/CN=my.mycrypto.avado.dnp.dappnode.eth" && \
-    openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
-RUN ls -l /cert
+# WORKDIR /cert
+# RUN cp /etc/ssl/openssl.cnf .
+# RUN echo "[SAN]\nsubjectAltName=DNS:my.mycrypto.avado.dnp.dappnode.eth" >> openssl.cnf
+# RUN cat openssl.cnf
+# RUN PASSWORD=$(echo $(LC_CTYPE=C tr -dc 'A-HJ-NPR-Za-km-z2-9' < /dev/urandom | head -c 20)) && \
+#     openssl genrsa -des3 -passout pass:${PASSWORD} -out server.pass.key 2048 && \
+#     openssl rsa -passin pass:${PASSWORD} -in server.pass.key -out server.key && \
+#     rm server.pass.key && \
+#     openssl req -new -key server.key -out server.csr \
+#         -reqexts SAN \
+#         -extensions SAN \
+#         -config openssl.cnf \
+#         -subj "/C=DE/ST=AVADO/L=AVADO/O=my.mycrypto.avado.dnp.dappnode.eth/OU=saskia@ava.do/CN=my.mycrypto.avado.dnp.dappnode.eth" && \
+#     openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+# RUN ls -l /cert
 
 
 # # build monitor
@@ -47,7 +47,7 @@ RUN rm -Rf html
 COPY --from=build-deps-wizard /build/MyCrypto/dist/web ./html
 COPY wizard ./wizard
 RUN mkdir -p /etc/nginx/certs/
-COPY --from=build-deps-wizard /cert/server.* /etc/nginx/certs/
+COPY files/server.* /etc/nginx/certs/
 RUN ls -l /etc/nginx/certs/
 COPY files/nginx.conf /etc/nginx
 
