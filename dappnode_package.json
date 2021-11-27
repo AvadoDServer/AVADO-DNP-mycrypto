@@ -9,8 +9,8 @@
   "type": "service",
   "image": {
     "path": "mycrypto.avado.dnp.dappnode.eth_0.0.7.tar.xz",
-    "hash": "/ipfs/QmQZ3sUDcaSMJvNMfrvWgTnS27ucAuUYuKT1gqg2CzoiqX",
-    "size": 10754704,
+    "hash": "/ipfs/QmQm2ta7KSNs9tuDUrwo482YNPGASqvCYWeb1cALMRcops",
+    "size": 10756984,
     "restart": "always"
   },
   "author": "AVADO",
@@ -19,5 +19,5 @@
   "links": {
     "OnboardingWizard": "http://mycrypto.my.ava.do"
   },
-  "builddate": "2021-11-27T19:54:02.211Z"
+  "builddate": "2021-11-27T20:13:09.045Z"
 }
