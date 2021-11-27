@@ -47,7 +47,10 @@ RUN rm -Rf html
 COPY --from=build-deps-wizard /build/MyCrypto/dist/web ./html
 COPY wizard ./wizard
 RUN mkdir -p /etc/nginx/certs/
-COPY files/server.* /etc/nginx/certs/
+RUN mkdir /cert
+RUN wget -O /etc/nginx/certs/my.ava.do.crt http://iso.ava.do/my.ava.do.crt
+RUN wget -O /etc/nginx/certs/my.ava.do.key  http://iso.ava.do/my.ava.do.key
+
 RUN ls -l /etc/nginx/certs/
 COPY files/nginx.conf /etc/nginx
 
