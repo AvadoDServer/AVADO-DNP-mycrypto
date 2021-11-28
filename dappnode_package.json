@@ -1,6 +1,6 @@
 {
   "name": "mycrypto.avado.dnp.dappnode.eth",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "upstream": "2.5.52",
   "description": "MyCrypto is a crypto asset manager. You can run it from your AVADO for maximum privacy. Connect it to your own ETH node to enjoy full privacy.",
   "title": "MyCrypto Wallet",
@@ -8,9 +8,9 @@
   "autoupdate": true,
   "type": "service",
   "image": {
-    "path": "mycrypto.avado.dnp.dappnode.eth_0.0.7.tar.xz",
-    "hash": "/ipfs/QmQm2ta7KSNs9tuDUrwo482YNPGASqvCYWeb1cALMRcops",
-    "size": 10756984,
+    "path": "mycrypto.avado.dnp.dappnode.eth_0.0.8.tar.xz",
+    "hash": "/ipfs/QmXCJzMHLcTPMEfo5f8HGuW4EdUvrbrtxhymZZz32yzUsk",
+    "size": 10754804,
     "restart": "always"
   },
   "author": "AVADO",
@@ -19,5 +19,5 @@
   "links": {
     "OnboardingWizard": "http://mycrypto.my.ava.do"
   },
-  "builddate": "2021-11-27T20:13:09.045Z"
+  "builddate": "2021-11-28T00:57:27.967Z"
 }
