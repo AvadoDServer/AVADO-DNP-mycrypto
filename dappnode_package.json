@@ -11,6 +11,7 @@
     "path": "mycrypto.avado.dnp.dappnode.eth_0.0.9.tar.xz",
     "hash": "/ipfs/QmZbpq3sTh8R4M89c1sZ5bzdRM957uTaWF3ZyzQPbh85eX",
     "size": 10760352,
+
     "restart": "always"
   },
   "author": "AVADO",
